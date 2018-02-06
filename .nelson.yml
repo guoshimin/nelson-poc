@@ -1,0 +1,19 @@
+---
+units:
+  - name: hello-world
+    description: >
+      very simple example service that says
+      hello world when the index resource is
+      called via http
+    ports:
+      - default->9000/http
+
+plans:
+  - name: default
+
+namespaces:
+  - name: dev
+    units:
+      - ref: hello-world
+      - plans:
+         - default
